@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jual Nokos - Putra Tam</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .tagline {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            margin: 10px auto;
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-header {
+            padding: 15px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .product-platform {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .product-body {
+            padding: 20px;
+        }
+        
+        .product-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .product-stock {
+            text-align: center;
+            font-size: 14px;
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+        
+        .btn-buy {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-buy:hover {
+            background: linear-gradient(135deg, #5a0db5 0%, #1c68e8 100%);
+            transform: scale(1.02);
+        }
+        
+        /* Payment Section */
+        .payment-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .payment-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        .payment-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .payment-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .payment-steps {
+            margin-bottom: 20px;
+        }
+        
+        .payment-step {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .qris-image {
+            flex: 1;
+            text-align: center;
+            min-width: 250px;
+        }
+        
+        .qris-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Info Section */
+        .info-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #6a11cb;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .info-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: #0088cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            background: #0077b3;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .online-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: #27ae60;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            background: #2ecc71;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .payment-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">JualNokos.com</div>
+                <div class="tagline">Menyediakan nomor kosong berbagai negara dengan kualitas terbaik</div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <h2 class="section-title">Daftar Stok Nokos</h2>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-name">Bolivia</div>
+                        <div class="product-platform">WhatsApp</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">Rp 20.000</div>
+                        <div class="product-stock">Stok: 20k</div>
+                        <button class="btn-buy">Beli Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-name">Filipina</div>
+                        <div class="product-platform">WhatsApp</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">Rp 8.000</div>
+                        <div class="product-stock">Stok: 8k</div>
+                        <button class="btn-buy">Beli Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-name">Canada</div>
+                        <div class="product-platform">WhatsApp</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">Rp 10.000</div>
+                        <div class="product-stock">Stok: 10k</div>
+                        <button class="btn-buy">Beli Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-name">Hongkong</div>
+                        <div class="product-platform">WhatsApp</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">Rp 20.000</div>
+                        <div class="product-stock">Stok: 20k</div>
+                        <button class="btn-buy">Beli Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-name">Colombia</div>
+                        <div class="product-platform">WhatsApp</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">Rp 15.000</div>
+                        <div class="product-stock">Stok: 15k</div>
+                        <button class="btn-buy">Beli Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-name">USA</div>
+                        <div class="product-platform">Telegram</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-price">Rp 15.000</div>
+                        <div class="product-stock">Stok: 15k</div>
+                        <button class="btn-buy">Beli Sekarang</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="payment-section">
+                <h2 class="section-title">Cara Pembayaran</h2>
+                
+                <div class="payment-info">
+                    <div class="payment-details">
+                        <h3 class="payment-title">Langkah-langkah Pembelian:</h3>
+                        
+                        <div class="payment-steps">
+                            <div class="payment-step">
+                                <div class="step-number">1</div>
+                                <div>Pilih produk nokos yang diinginkan</div>
+                            </div>
+                            <div class="payment-step">
+                                <div class="step-number">2</div>
+                                <div>Lakukan pembayaran via QRIS dengan scan kode di samping</div>
+                            </div>
+                            <div class="payment-step">
+                                <div class="step-number">3</div>
+                                <div>Konfirmasi pembayaran ke Telegram admin dengan mengirim bukti transfer</div>
+                            </div>
+                            <div class="payment-step">
+                                <div class="step-number">4</div>
+                                <div>Tunggu proses pengiriman nokos (biasanya 10-15 menit)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <a href="https://t.me/indrikesya" class="contact-btn" target="_blank">
+                                Konfirmasi ke Telegram
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="qris-image">
+                        <img src="https://cdn.neyyvoi.cfd/files/6IsryS.jpg" alt="QRIS Payment">
+                        <p>Scan QRIS untuk pembayaran</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2 class="section-title">Informasi Penting</h2>
+                
+                <div class="info-box">
+                    <div class="info-title">Tips Agar Tidak Kena Ban Saat Pertama Kali Mendaftar:</div>
+                    <p>1. Gunakan VPN sesuai negara nokos yang dibeli</p>
+                    <p>2. Jangan langsung mengubah profil atau foto setelah registrasi</p>
+                    <p>3. Tunggu minimal 24 jam sebelum melakukan aktivitas intensif</p>
+                    <p>4. Jangan gunakan untuk spam atau broadcast massal</p>
+                    <p>5. Pastikan menggunakan aplikasi versi terbaru</p>
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-title">Informasi Restock:</div>
+                    <p>Restock dilakukan secara berkala setiap 10-15 menit. Jika stok habis, silakan tunggu beberapa saat untuk restock.</p>
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-title">Jam Operasional Admin:</div>
+                    <p>Admin online setiap hari pukul 19.00 - 22.00 WIB. Di luar jam tersebut, pesanan akan diproses pada jam operasional berikutnya.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="online-status">
+                    <div class="status-indicator"></div>
+                    <span>Admin Online: 19.00 - 22.00 WIB</span>
+                </div>
+                
+                <div class="contact-info">
+                    <a href="https://t.me/indrikesya" class="contact-btn" target="_blank">
+                        Hubungi Admin via Telegram
+                    </a>
+                </div>
+                
+                <div class="copyright">
+                    &copy; 2023 JualNokos.com - Dibuat oleh Putra Tam
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Fungsi untuk menampilkan status online admin
+        function updateAdminStatus() {
+            const now = new Date();
+            const currentHour = now.getHours();
+            const statusElement = document.querySelector('.online-status');
+            
+            if (currentHour >= 19 && currentHour < 22) {
+                statusElement.innerHTML = '<div class="status-indicator"></div><span>Admin Sedang Online</span>';
+                statusElement.style.background = '#27ae60';
+            } else {
+                statusElement.innerHTML = '<div class="status-indicator" style="background:#e74c3c"></div><span>Admin Offline - Online: 19.00-22.00 WIB</span>';
+                statusElement.style.background = '#e74c3c';
+            }
+        }
+        
+        // Panggil fungsi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            updateAdminStatus();
+            
+            // Update status setiap menit
+            setInterval(updateAdminStatus, 60000);
+            
+            // Animasi untuk tombol beli
+            const buyButtons = document.querySelectorAll('.btn-buy');
+            buyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Silakan lakukan pembayaran via QRIS dan konfirmasi ke Telegram admin dengan bukti transfer.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
